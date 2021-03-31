@@ -1,16 +1,15 @@
 import './search.sass'
 import SearchBar from './../SearchBar'
+import Logo from './../Logo'
+import React from 'react'
 
 function App () {
   return (
     <div className='search-container'>
-      <div className='logo'>
-        <p className='title'>
-          Github
-          <span className='sub-title'>Search</span>
-        </p>
+      <React.Fragment>
+        <Logo />
         <SearchBar />
-      </div>
+      </React.Fragment>
     </div>
   )
 }
