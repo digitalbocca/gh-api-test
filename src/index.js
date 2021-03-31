@@ -2,12 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import './assets/sass/styles.sass'
-import App from './components/App'
+import Search from './components/Search'
 import reportWebVitals from './reportWebVitals'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Search />
   </React.StrictMode>,
   document.getElementById('app')
 )
