@@ -1,3 +1,4 @@
+import './top-bar.sass'
 import MiniLogo from './../MiniLogo'
 import SearchBar from './../SearchBar'
 
