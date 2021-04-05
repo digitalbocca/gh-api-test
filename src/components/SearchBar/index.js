@@ -8,7 +8,9 @@ function SearchBar () {
   return (
     <div className='search-bar'>
       <input className='search-input' type='text' value={ghSlug} onChange={e => setGhSlug(e.target.value)} />
-      <button className='search-button' onClick={() => console.log(ghSlug)}>
+      <button className='search-button' onClick={() => {
+        window.location.replace(`${window.location.origin}/profiles/${ghSlug}`)
+      }}>
         <img src={SearchIcon} alt='search' />
       </button>
     </div>

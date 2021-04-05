@@ -7,14 +7,14 @@ import './assets/sass/styles.sass'
 import reportWebVitals from './reportWebVitals'
 
 import Search from './components/Search'
-import NotFound from './components/NotFound'
+import Profile from './components/Profile'
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
-        <Route path='/not-found'>
-          <NotFound />
+        <Route path='/profiles/:id'>
+          <Profile />
         </Route>
         <Route path='/'>
           <Search />
