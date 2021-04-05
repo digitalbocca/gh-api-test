@@ -4,13 +4,15 @@ import './profile.sass'
 import TopBar from './../TopBar'
 
 function Profile () {
-  let [userInfo] = useState({ loading: true })
+  let [userInfo, setUserInfo] = useState({ loading: true })
 
   const userSlug = window.location.pathname.split('/')[2]
 
   const searchGhByUsername = async () => {
     try {
       const result = await axios.get(`https://api.github.com/users/${userSlug}`)
+      setUserInfo({ loading: false, ...result.data })
+      console.log(userInfo)
     } catch (e) {
       console.log(e.message)
       window.location.replace(`${window.location.origin}/not-found`)
