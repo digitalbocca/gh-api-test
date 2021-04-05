@@ -8,11 +8,15 @@ import reportWebVitals from './reportWebVitals'
 
 import Search from './components/Search'
 import Profile from './components/Profile'
+import NotFound from './components/NotFound'
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Switch>
+        <Route path='/not-found'>
+          <NotFound />
+        </Route>
         <Route path='/profiles/:id'>
           <Profile />
         </Route>
