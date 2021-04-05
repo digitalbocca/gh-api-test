@@ -1,15 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+
 import './assets/sass/styles.sass'
 import reportWebVitals from './reportWebVitals'
 
-// import Search from './components/Search'
+import Search from './components/Search'
 import NotFound from './components/NotFound'
 
 ReactDOM.render(
   <React.StrictMode>
-    <NotFound />
+    <Router>
+      <Switch>
+        <Route path='/not-found'>
+          <NotFound />
+        </Route>
+        <Route path='/'>
+          <Search />
+        </Route>
+      </Switch>
+    </Router>
   </React.StrictMode>,
   document.getElementById('app')
 )
