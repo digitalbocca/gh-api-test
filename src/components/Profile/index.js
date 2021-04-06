@@ -14,6 +14,10 @@ function Profile () {
       setUserInfo({ loading: false, ...result.data })
       console.log(userInfo)
     } catch (e) {
+      /**
+       * @todo Tratar o erro, pois tanto o 404 como o 403 (Problemas com o limite da API) 
+       * está redirecionando para o NotFound.
+       */
       console.log(e.message)
       window.location.replace(`${window.location.origin}/not-found`)
     }
@@ -34,8 +38,13 @@ function Profile () {
     return (
       <div className='container-not-found'>
         <TopBar />
-        <div className='main-content'>
-          <p className='main-text'>User not found :</p>
+        <div className='profile-wrapper'>
+          <div className='profile-side-bar'>
+            <p>Profile</p>
+          </div>
+          <div className='repositories-wrapper'>
+            <p>repositories</p>
+          </div>
         </div>
       </div>
     )
