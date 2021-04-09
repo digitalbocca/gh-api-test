@@ -1,29 +1,32 @@
-import axios from 'axios'
+// import axios from 'axios'
 import { useState } from 'react'
+import { useHistory, useParams } from 'react-router-dom'
 import './profile.sass'
 import TopBar from './../TopBar'
+import StarIcon from './../../assets/img/star-icon.svg'
 
 function Profile () {
-  let [userInfo, setUserInfo] = useState({ loading: true })
+  let [userInfo, setUserInfo] = useState({ loading: false })
 
-  const userSlug = window.location.pathname.split('/')[2]
+  const { id } = useParams()
+
+  const history = useHistory()
+
+  const handleSearch = slug => history.push(slug)
 
   const searchGhByUsername = async () => {
     try {
-      const result = await axios.get(`https://api.github.com/users/${userSlug}`)
+      // const result = await axios.get(`https://api.github.com/users/${userSlug}`)
+      const result = { status: false }
       setUserInfo({ loading: false, ...result.data })
       console.log(userInfo)
     } catch (e) {
-      /**
-       * @todo Tratar o erro, pois tanto o 404 como o 403 (Problemas com o limite da API) 
-       * está redirecionando para o NotFound.
-       */
       console.log(e.message)
-      window.location.replace(`${window.location.origin}/not-found`)
+      handleSearch('not-found')
     }
   }
 
-  searchGhByUsername()
+  // searchGhByUsername()
 
   if (userInfo.loading) {
     return (
@@ -40,10 +43,18 @@ function Profile () {
         <TopBar />
         <div className='profile-wrapper'>
           <div className='profile-side-bar'>
+            <img src='https://picsum.photos/280/280' />
             <p>Profile</p>
           </div>
           <div className='repositories-wrapper'>
-            <p>repositories</p>
+            <div>
+              <h3 className='repo-name'>Lorem Ipsum</h3>
+              <p className='repo-desc'>Lorem ipsum dolor...</p>
+              <p className='repo-stars'>
+                <img className='repo-icon' src={StarIcon} />
+                1000
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { Switch, Route, HashRouter } from 'react-router-dom'
 
 import './assets/sass/styles.sass'
 import reportWebVitals from './reportWebVitals'
@@ -12,7 +12,7 @@ import NotFound from './components/NotFound'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <HashRouter>
       <Switch>
         <Route path='/not-found'>
           <NotFound />
@@ -24,7 +24,7 @@ ReactDOM.render(
           <Search />
         </Route>
       </Switch>
-    </Router>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('app')
 )
