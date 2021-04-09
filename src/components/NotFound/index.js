@@ -7,7 +7,7 @@ function NotFound () {
       <TopBar />
       <div className='main-content'>
         <p className='main-text'>User not found :(</p>
-        <p className="text-center">Tente novamente mais tarde, pois podemos ter atingido nossa quota de requisições.</p>
+        <p className='text-center'>Tente novamente mais tarde, pois podemos ter atingido nossa quota de requisições.</p>
       </div>
     </div>
   )
